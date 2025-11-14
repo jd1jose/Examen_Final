@@ -79,10 +79,10 @@ WSGI_APPLICATION = 'Pfinal.wsgi.application'
 
 
 DATABASES = {
-     'default': dj_database_url.config(
-        default='sqlite:///db.sqlite3',
+     'default': dj_database_url.parse(
+        os.getenv("DATABASE_URL"),
         conn_max_age=600,
-        ssl_require=False
+        ssl_require=True
     )
 }
 
